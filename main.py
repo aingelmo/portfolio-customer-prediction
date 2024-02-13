@@ -20,7 +20,7 @@ app = FastAPI()
 model = load_model(str(model_location))
 
 
-@app.post("/predict")
+@app.post("/predict_mnt_wine")
 def predict(input_dict: Data):
     input_df = pd.DataFrame([input_dict.model_dump()])
     predictions_df = predict_model(estimator=model, data=input_df)
